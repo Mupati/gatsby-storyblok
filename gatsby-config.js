@@ -1,8 +1,10 @@
+const previewToken =
+  process.env.STORYBLOK_PREVIEW_TOKEN || "kay8DtnXZrchZAdy8NGirgtt"
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Kofi Mupati Blog - DevCodes`,
+    description: `A Blog by Kofi Obrasi Ocran where I share my thoughts on several topics`,
+    author: `kofi mupati`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,12 +15,21 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: "gatsby-source-storyblok",
+      options: {
+        accessToken: previewToken,
+        homeSlug: "home",
+        version: process.env.NODE_ENV === "production" ? "published" : "draft",
+      },
+    },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `Devcodes`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
