@@ -8,7 +8,7 @@ const Hero = props => {
   const bgImage = transformImage(props.blok.image)
   return (
     <SbEditable content={props.blok}>
-      <Wrapper style={{ backgroundImage: `url(${bgImage})` }}>
+      <Wrapper bgImg={bgImage}>
         <Heading>{props.blok.heading}</Heading>
         {props.blok.description && (
           <Description>{props.blok.description}</Description>
@@ -21,6 +21,7 @@ const Hero = props => {
 export default Hero
 
 const Wrapper = styled.div`
+  background-image: url(${props => props.bgImg});
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

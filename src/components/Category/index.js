@@ -1,17 +1,13 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Category = ({ blok }) => {
-  console.log(blok)
   return (
     <CategoryItem>
-      <CategoryLink>
-        <CategoryImage></CategoryImage>
-        {blok.name}
-        <br />
-        {blok.link.cached_url}
-        <br />
-        {blok.image}
+      <CategoryLink to={`/${blok.link.cached_url}`}>
+        <CategoryImage icon={blok.icon_image}></CategoryImage>
+        <CategoryName>{blok.name}</CategoryName>
       </CategoryLink>
     </CategoryItem>
   )
@@ -22,17 +18,17 @@ export default Category
 const CategoryItem = styled.li`
   position: relative;
   list-style: none;
-  margin-bottom: 10px;
-  text-transform: uppercase;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 20rem;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
 
   &:hover {
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
   }
 
   &::before {
@@ -47,14 +43,23 @@ const CategoryItem = styled.li`
     opacity: 0.65;
   }
 `
-
-const CategoryLink = styled.a`
+const CategoryName = styled.span`
+  text-transform: uppercase;
+  font-size: 30px;
+`
+const CategoryLink = styled(props => <Link {...props} />)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 2.5rem;
   font-weight: 700;
   z-index: 2;
   color: #06c4d1;
+  text-decoration: none;
 `
-const CategoryImage = styled.img`
+
+const CategoryImage = styled.img.attrs(props => ({ src: props.icon }))`
   height: 128px;
   margin-bottom: 20px;
   z-index: 2;
