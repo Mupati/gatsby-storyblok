@@ -7,14 +7,14 @@ const Header = props => {
     <Wrapper>
       <DesktopNav>
         {props.blok[0].nav_brand.map(brand => (
-          <NavBrand to={brand.url.url} key={brand._uid}>
+          <NavBrand to={brand.url.cached_url} key={brand._uid}>
             {brand.name}
           </NavBrand>
         ))}
         <NavList>
           {props.blok[0].nav_item[0].link.map(link => (
             <NavItem key={link._uid}>
-              <NavLink to="/about">{link.name}</NavLink>
+              <NavLink to={`/${link.url.cached_url}`}>{link.name}</NavLink>
             </NavItem>
           ))}
         </NavList>

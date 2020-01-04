@@ -1,9 +1,7 @@
 import React from "react"
-// import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Footer = props => {
-  console.log(props.blok)
   return (
     <Wrapper>
       <Copyright>
