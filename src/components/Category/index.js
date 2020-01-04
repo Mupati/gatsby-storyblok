@@ -6,7 +6,7 @@ const Category = ({ blok }) => {
   return (
     <CategoryItem>
       <CategoryLink to={`/${blok.link.cached_url}`}>
-        <CategoryImage icon={blok.icon_image}></CategoryImage>
+        <CategoryImage icon={blok.icon}></CategoryImage>
         <CategoryName>{blok.name}</CategoryName>
       </CategoryLink>
     </CategoryItem>

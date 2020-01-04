@@ -5,7 +5,7 @@ import styled from "styled-components"
 import transformImage from "../../utils/imageTransform"
 
 const Hero = props => {
-  const bgImage = transformImage(props.blok.image)
+  const bgImage = transformImage(props.blok.banner)
   return (
     <SbEditable content={props.blok}>
       <Wrapper bgImg={bgImage}>

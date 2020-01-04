@@ -8,7 +8,7 @@ const HomeCategory = props => {
   return (
     <SbEditable content={props.blok}>
       <Wrapper>
-        {props.blok.body.map(blok =>
+        {props.blok.content.map(blok =>
           React.createElement(Components(blok.component), {
             key: blok._uid,
             blok: blok,
@@ -21,7 +21,6 @@ const HomeCategory = props => {
 
 export default HomeCategory
 
-// grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 const Wrapper = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
