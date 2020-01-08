@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Components from "../utils/components.js"
+import styled from "styled-components"
 
 import TheHeader from "../components/TheHeader"
 import TheFooter from "../components/TheFooter"
@@ -33,10 +34,12 @@ class StoryblokEntry extends Component {
     return (
       <>
         <TheHeader blok={globalNavi.header} />
-        {React.createElement(Components(content.component), {
-          key: content._uid,
-          blok: content,
-        })}
+        <Main>
+          {React.createElement(Components(content.component), {
+            key: content._uid,
+            blok: content,
+          })}
+        </Main>
         <TheFooter blok={globalNavi.footer} />
       </>
     )
@@ -44,3 +47,8 @@ class StoryblokEntry extends Component {
 }
 
 export default StoryblokEntry
+
+const Main = styled.main`
+  min-height: 100vh;
+  overflow-y: auto;
+`

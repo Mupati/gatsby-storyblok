@@ -24,14 +24,17 @@ const Footer = props => {
 export default Footer
 
 const Wrapper = styled.footer`
-  margin-top: 5em;
-  padding: 1em 2em;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
+  margin-top: calc(-2rem - 28px);
+  padding: 1em 2em;
   background: #022d30;
   color: #fff;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 const Copyright = styled.span`
   display: block;
@@ -39,17 +42,15 @@ const Copyright = styled.span`
 `
 
 const SocialList = styled.ul`
-  margin-left: auto;
+  display: flex;
   list-style: none;
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
 `
 
 const SocialItem = styled.li`
-  display: inline-block;
-  vertical-align: middle;
   margin-right: 2em;
-  :last-child {
-    margin-right: 10em;
-  }
 `
 const SocialLink = styled.a.attrs(props => ({
   href: props.to,

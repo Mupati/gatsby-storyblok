@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 60vh;
+  height: 50vh;
   text-align: center;
   display: flex;
   flex-direction: column;
