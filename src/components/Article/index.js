@@ -1,12 +1,17 @@
 import React from "react"
-import Page from "../Page"
+import styled from "styled-components"
+import RichText from "../../utils/richTextRenderer"
 
-// import styled from "styled-components"
-
-const Article = props => <Page blok={props} />
+const Article = props => {
+  return (
+    <Wrapper>
+      <RichText data={props.blok.body} />
+    </Wrapper>
+  )
+}
 
 export default Article
 
-// const Wrapper = styled.article`
-//   margin: 2em 15%;
-// `
+const Wrapper = styled.article`
+  margin: 2em 10%;
+`

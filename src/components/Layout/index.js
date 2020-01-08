@@ -3,11 +3,7 @@ import React from "react"
 import "./layout.css"
 
 const Layout = props => {
-  return (
-    <>
-      <main>{props.children}</main>
-    </>
-  )
+  return <></>
 }
 
 export default Layout

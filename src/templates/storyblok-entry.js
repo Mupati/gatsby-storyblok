@@ -9,7 +9,6 @@ class StoryblokEntry extends Component {
     if (state.story.uuid === props.pageContext.story.uuid) {
       return null
     }
-
     return StoryblokEntry.prepareStory(props)
   }
 
@@ -24,7 +23,6 @@ class StoryblokEntry extends Component {
 
   constructor(props) {
     super(props)
-
     this.state = StoryblokEntry.prepareStory(props)
   }
 

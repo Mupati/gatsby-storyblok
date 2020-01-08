@@ -41,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         contents.forEach((entry, index) => {
           const pagePath =
-            entry.node.full_slug == "index" ? "" : `${entry.node.full_slug}/`
+            entry.node.full_slug == "index" ? "" : `${entry.node.full_slug}`
           const globalNavi = entries.filter(
             globalEntry =>
               globalEntry.node.field_component == "global" &&
