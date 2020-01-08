@@ -1,5 +1,13 @@
 const path = require("path")
 
+exports.onCreateWebpackConfig = ({ stage, plugins, actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: "empty",
+    },
+  })
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 

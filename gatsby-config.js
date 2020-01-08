@@ -1,5 +1,7 @@
-const previewToken =
-  process.env.STORYBLOK_PREVIEW_TOKEN || "kay8DtnXZrchZAdy8NGirgtt"
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Kofi Mupati Blog - DevCodes`,
@@ -18,7 +20,7 @@ module.exports = {
     {
       resolve: "gatsby-source-storyblok",
       options: {
-        accessToken: previewToken,
+        accessToken: process.env.STORYBLOK_PREVIEW_TOKEN,
         homeSlug: "home",
         version: process.env.NODE_ENV === "production" ? "published" : "draft",
       },
