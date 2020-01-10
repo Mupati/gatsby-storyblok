@@ -1,6 +1,6 @@
 const path = require("path")
 
-exports.onCreateWebpackConfig = ({ stage, plugins, actions }) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     node: {
       fs: "empty",
@@ -67,6 +67,8 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               globalNavi: globalNavi[0].node,
               story: entry.node,
+              currentPath: pagePath,
+              dateCreated: entry.node.created_at,
             },
           })
         })

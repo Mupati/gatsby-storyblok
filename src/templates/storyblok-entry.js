@@ -15,6 +15,7 @@ class StoryblokEntry extends Component {
 
   static prepareStory(props) {
     const story = Object.assign({}, props.pageContext.story)
+
     const globalNavi = Object.assign({}, props.pageContext.globalNavi)
     story.content = JSON.parse(story.content)
     globalNavi.content = JSON.parse(globalNavi.content)
@@ -30,6 +31,10 @@ class StoryblokEntry extends Component {
   render() {
     let content = this.state.story.content
     let globalNavi = this.state.globalNavi.content
+    let currentPath = this.state.story.slug
+    let dateCreated = this.state.story.created_at
+
+    console.log(currentPath)
 
     return (
       <>
@@ -38,6 +43,8 @@ class StoryblokEntry extends Component {
           {React.createElement(Components(content.component), {
             key: content._uid,
             blok: content,
+            path: currentPath,
+            dateCreated: dateCreated,
           })}
         </Main>
         <TheFooter blok={globalNavi.footer} />

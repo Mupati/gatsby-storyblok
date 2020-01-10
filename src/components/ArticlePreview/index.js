@@ -26,15 +26,21 @@ export default ArticlePreview
 const Wrapper = styled.li`
   display: flex;
   padding: 2em;
-  border: 1px solid #06c4d1;
+  border: 1px solid #c9d3e2;
   width: 100%
   &:hover {
     border-left: 0.5em solid #06c4d1;
     cursor: pointer;
   }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `
 const PreviewContent = styled.div`
   width: 50%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 const Heading = styled.h2`
@@ -51,10 +57,14 @@ const PublishedDate = styled.span``
 
 const PreviewImage = styled.div`
   background-image: url(${props => props.image});
-  background-color: #06c4d1;
+  background-color: rgba(6, 196, 209, 0.3);
   background-size: cover;
   background-position: center center;
   height: 220px;
   width: 50%;
   margin-left: 2em;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+  }
 `
