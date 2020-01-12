@@ -5,6 +5,7 @@ import styled from "styled-components"
 import transformImage from "../../utils/imageTransform"
 
 const ArticlePreview = props => {
+  console.log(props)
   const bgImg = transformImage(props.blok.image)
   return (
     <Wrapper>
@@ -33,6 +34,7 @@ const ArticleLink = styled(props => <Link {...props} />)`
   width: 100%;
   padding: 1.5em;
   border: 1px solid #c9d3e2;
+  color: #333;
   transition: 500ms ease-in-out;
   &:hover {
     border-left: 0.5em solid #06c4d1;
@@ -53,24 +55,28 @@ const PreviewContent = styled.div`
 const Heading = styled.h2`
   font-size: 24px;
 `
-const Excerpt = styled.p``
+const Excerpt = styled.p`
+  text-align: justify;
+  font: 400 14px/18px "Montserrat";
+`
 
 const ContentBottom = styled.div`
   display: flex;
   margin-top: auto;
 `
 const Author = styled.div``
-const PublishedDate = styled.span``
+const PublishedDate = styled.em``
 
 const PreviewImage = styled.div`
   background-image: url(${props => props.image});
   background-color: rgba(6, 196, 209, 0.3);
   background-size: cover;
   background-position: center center;
-  height: 220px;
+  height: 100%;
   width: 50%;
   margin-left: 2em;
   @media (max-width: 768px) {
+    height: 220px;
     width: 100%;
     margin: 0;
   }

@@ -25,7 +25,7 @@ const CategoryItem = styled.li`
   align-items: center;
   height: 20rem;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-
+  transition: 500ms ease-in-out;
   &:hover {
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
     cursor: pointer;
@@ -45,7 +45,7 @@ const CategoryItem = styled.li`
 `
 const CategoryName = styled.span`
   text-transform: uppercase;
-  font-size: 30px;
+  font: 700 32px/39px "Montserrat";
 `
 const CategoryLink = styled(props => <Link {...props} />)`
   display: flex;

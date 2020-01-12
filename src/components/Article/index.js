@@ -13,6 +13,7 @@ const Article = props => {
 export default Article
 
 const Wrapper = styled.article`
+  font: 400 18px/33px "Montserrat";
   display: flex;
   justify-content: center;
   margin: 2em 15% 5em;

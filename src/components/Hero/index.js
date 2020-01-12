@@ -48,7 +48,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Heading = styled.h1`
+const Heading = styled.h2`
   z-index: 2;
   color: #06c4d1;
   font-size: 5em;
@@ -61,4 +61,5 @@ const Heading = styled.h1`
 const Description = styled.p`
   color: #fff;
   z-index: 2;
+  font: 400 25px/33px "Montserrat";
 `

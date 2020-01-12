@@ -86,6 +86,7 @@ const DesktopNavList = styled.ul`
 `
 
 const DesktopNavItem = styled.li`
+  font: 600 20px/24px "Montserrat";
   margin: 0 1rem;
   padding: 0.3rem;
   text-transform: uppercase;
@@ -129,6 +130,7 @@ const MobileNavList = styled.ul`
   text-align: center;
 `
 const MobileNavItem = styled.li`
+  font: 600 20px/24px "Montserrat";
   display: flex;
   text-transform: uppercase;
   margin-bottom: 3.5em;

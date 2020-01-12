@@ -9,6 +9,6 @@ const Wrapper = styled.h2`
   text-align: center;
   padding-top: 0.5em;
   margin-top: 0.5em;
-  font-size: 30px;
+  color: #333;
   text-transform: uppercase;
 `
