@@ -1,8 +1,23 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+import humburgerIcon from "../../images/burger.svg"
+import closeIcon from "../../images/close.svg"
+
 const Header = props => {
+  const [isMenuOpen, openMenu] = useState(false)
+
+  useEffect(() => {
+    const handler = () => {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        openMenu(false)
+      }
+    }
+    window.addEventListener("resize", handler)
+    return () => window.removeEventListener("resize", handler)
+  }, [isMenuOpen])
+
   return (
     <Wrapper>
       <DesktopNav>
@@ -11,14 +26,32 @@ const Header = props => {
             {brand.name}
           </NavBrand>
         ))}
-        <NavList>
+        <DesktopNavList>
           {props.blok[0].nav_item[0].link.map(link => (
-            <NavItem key={link._uid}>
-              <NavLink to={`/${link.url.cached_url}`}>{link.name}</NavLink>
-            </NavItem>
+            <DesktopNavItem key={link._uid}>
+              <DesktopNavLink to={`/${link.url.cached_url}`}>
+                {link.name}
+              </DesktopNavLink>
+            </DesktopNavItem>
           ))}
-        </NavList>
+          <Humburger onClick={() => openMenu(!isMenuOpen)}>
+            <img src={isMenuOpen ? closeIcon : humburgerIcon} alt="MENU" />
+          </Humburger>
+        </DesktopNavList>
       </DesktopNav>
+      {isMenuOpen && (
+        <MobileNav>
+          <MobileNavList>
+            {props.blok[0].nav_item[0].link.map(link => (
+              <MobileNavItem key={link._uid}>
+                <MobileNavLink to={`/${link.url.cached_url}`}>
+                  {link.name}
+                </MobileNavLink>
+              </MobileNavItem>
+            ))}
+          </MobileNavList>
+        </MobileNav>
+      )}
     </Wrapper>
   )
 }
@@ -42,23 +75,65 @@ const NavBrand = styled(props => <Link {...props} />)`
 `
 
 const DesktopNav = styled.nav`
-  height: 100%;
   display: flex;
+  height: 100%;
 `
-const NavList = styled.ul`
+const DesktopNavList = styled.ul`
   list-style: none;
   display: flex;
   margin-left: auto;
   margin-right: 3em;
 `
 
-const NavItem = styled.li`
+const DesktopNavItem = styled.li`
   margin: 0 1rem;
   padding: 0.3rem;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
-const NavLink = styled(props => <Link {...props} />)`
+const DesktopNavLink = styled(props => <Link {...props} />)`
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  &:hover,
+  &:active {
+    color: #06c4d1;
+  }
+`
+const Humburger = styled.button`
+  display: none;
+  &:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    display: block;
+  }
+`
+const MobileNav = styled.nav`
+  display: none;
+  height: 100vh;
+  background: #022d30;
+  @media (max-width: 768px) {
+    display: block;
+  }
+`
+const MobileNavList = styled.ul`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`
+const MobileNavItem = styled.li`
+  display: flex;
+  text-transform: uppercase;
+  margin-bottom: 3.5em;
+`
+const MobileNavLink = styled(props => <Link {...props} />)`
   display: block;
   text-decoration: none;
   color: #fff;

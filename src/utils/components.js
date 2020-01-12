@@ -4,7 +4,7 @@ import ComponentNotFound from "../components/NotFound"
 import Category from "../components/Category"
 
 import Hero from "../components/Hero"
-import HomeCategory from "../components/Home/HomeCategory"
+import CategoryList from "../components/CategoryList"
 import TheHeader from "../components/TheHeader"
 import TheFooter from "../components/TheFooter"
 import Article from "../components/Article"
@@ -19,7 +19,7 @@ const ComponentList = {
   page: Page,
   hero: Hero,
   category: Category,
-  home_category: HomeCategory,
+  category_list: CategoryList,
   header: TheHeader,
   footer: TheFooter,
   article: Article,

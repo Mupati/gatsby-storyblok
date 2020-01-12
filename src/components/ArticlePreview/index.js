@@ -5,7 +5,6 @@ import styled from "styled-components"
 import transformImage from "../../utils/imageTransform"
 
 const ArticlePreview = props => {
-  console.log(props)
   const bgImg = transformImage(props.blok.image)
   return (
     <Wrapper>
@@ -28,20 +27,18 @@ export default ArticlePreview
 
 const Wrapper = styled.li`
   display: flex;
-  padding: 2em;
+`
+const ArticleLink = styled(props => <Link {...props} />)`
+  display: flex;
+  width: 100%;
+  padding: 1.5em;
   border: 1px solid #c9d3e2;
   transition: 500ms ease-in-out;
   &:hover {
     border-left: 0.5em solid #06c4d1;
     cursor: pointer;
-    transform: translateX(10px);
+    transform: translateX(5px);
   }
-  width: 100% @media (max-width: 768px) {
-    flex-direction: column-reverse;
-  }
-`
-const ArticleLink = styled(props => <Link {...props} />)`
-  display: flex;
   @media (max-width: 768px) {
     flex-direction: column-reverse;
   }

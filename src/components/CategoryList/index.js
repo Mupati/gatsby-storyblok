@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import Components from "../../utils/components"
 
-const HomeCategory = props => {
+const CategoryList = props => {
   return (
     <SbEditable content={props.blok}>
       <Wrapper>
@@ -19,7 +19,7 @@ const HomeCategory = props => {
   )
 }
 
-export default HomeCategory
+export default CategoryList
 
 const Wrapper = styled.ul`
   display: grid;
@@ -27,7 +27,7 @@ const Wrapper = styled.ul`
   grid-gap: 3rem;
   margin: 5em 5%;
   @media (max-width: 768px) {
-    margin: 2em 0;
+    margin: 2em 10px;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   }
   @media (max-width: 320px) {
