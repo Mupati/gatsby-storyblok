@@ -13,5 +13,7 @@ const Article = props => {
 export default Article
 
 const Wrapper = styled.article`
-  margin: 2em 10%;
+  display: flex;
+  justify-content: center;
+  margin: 2em 15% 5em;
 `

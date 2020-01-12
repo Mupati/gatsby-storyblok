@@ -1,22 +1,25 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 import transformImage from "../../utils/imageTransform"
 
 const ArticlePreview = props => {
+  console.log(props)
   const bgImg = transformImage(props.blok.image)
   return (
     <Wrapper>
-      <PreviewContent>
-        <Heading>{props.blok.title}</Heading>
-        <Excerpt>{props.blok.excerpt}</Excerpt>
-        <ContentBottom>
-          <Author></Author>
-          <PublishedDate>{props.blok.date}</PublishedDate>
-        </ContentBottom>
-      </PreviewContent>
-      <PreviewImage image={bgImg}></PreviewImage>
+      <ArticleLink to={`/${props.blok.link.cached_url}`}>
+        <PreviewContent>
+          <Heading>{props.blok.title}</Heading>
+          <Excerpt>{props.blok.excerpt}</Excerpt>
+          <ContentBottom>
+            <Author></Author>
+            <PublishedDate>{props.blok.date}</PublishedDate>
+          </ContentBottom>
+        </PreviewContent>
+        <PreviewImage image={bgImg}></PreviewImage>
+      </ArticleLink>
     </Wrapper>
   )
 }
@@ -27,11 +30,18 @@ const Wrapper = styled.li`
   display: flex;
   padding: 2em;
   border: 1px solid #c9d3e2;
-  width: 100%
+  transition: 500ms ease-in-out;
   &:hover {
     border-left: 0.5em solid #06c4d1;
     cursor: pointer;
+    transform: translateX(10px);
   }
+  width: 100% @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+`
+const ArticleLink = styled(props => <Link {...props} />)`
+  display: flex;
   @media (max-width: 768px) {
     flex-direction: column-reverse;
   }

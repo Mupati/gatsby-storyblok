@@ -6,7 +6,6 @@ import styled from "styled-components"
 import Components from "../../utils/components"
 
 const ArticleList = props => {
-  // console.log(props)
   let homePageArticles = (
     <Wrapper>
       {props.blok.content.map(blok =>

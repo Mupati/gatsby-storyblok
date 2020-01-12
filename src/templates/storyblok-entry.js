@@ -34,8 +34,6 @@ class StoryblokEntry extends Component {
     let currentPath = this.state.story.slug
     let dateCreated = this.state.story.created_at
 
-    console.log(currentPath)
-
     return (
       <>
         <TheHeader blok={globalNavi.header} />

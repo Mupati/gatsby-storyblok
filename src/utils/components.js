@@ -12,6 +12,7 @@ import ArticlePreview from "../components/ArticlePreview"
 import ArticleList from "../components/ArticleList"
 import Heading from "../components/Heading"
 import Paragraph from "../components/Paragraph"
+import Author from "../components/Author"
 
 const ComponentList = {
   global: Layout,
@@ -26,6 +27,7 @@ const ComponentList = {
   article_list: ArticleList,
   heading: Heading,
   paragraph: Paragraph,
+  author: Author,
 }
 
 const Components = type => {

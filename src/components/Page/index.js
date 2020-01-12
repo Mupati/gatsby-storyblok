@@ -2,7 +2,6 @@ import React from "react"
 import Components from "../../utils/components"
 
 const Page = props => {
-  console.log(props)
   return (
     <>
       {props.blok.body &&
