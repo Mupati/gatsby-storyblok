@@ -3,10 +3,13 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 import transformImage from "../../utils/imageTransform"
+import formatName from "../../utils/formatAuthorName"
+import { getDateInEnglish } from "../../utils/formatDate"
 
 const ArticlePreview = props => {
-  console.log(props)
+  const authorName = formatName(props.blok.author.cached_url)
   const bgImg = transformImage(props.blok.image)
+  const publishedDate = getDateInEnglish(props.blok.date)
   return (
     <Wrapper>
       <ArticleLink to={`/${props.blok.link.cached_url}`}>
@@ -14,8 +17,8 @@ const ArticlePreview = props => {
           <Heading>{props.blok.title}</Heading>
           <Excerpt>{props.blok.excerpt}</Excerpt>
           <ContentBottom>
-            <Author></Author>
-            <PublishedDate>{props.blok.date}</PublishedDate>
+            <Author>By: {authorName}</Author>
+            <PublishedDate>{publishedDate}</PublishedDate>
           </ContentBottom>
         </PreviewContent>
         <PreviewImage image={bgImg}></PreviewImage>
@@ -64,7 +67,9 @@ const ContentBottom = styled.div`
   display: flex;
   margin-top: auto;
 `
-const Author = styled.div``
+const Author = styled.span`
+  margin-right: auto;
+`
 const PublishedDate = styled.em``
 
 const PreviewImage = styled.div`

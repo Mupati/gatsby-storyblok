@@ -6,7 +6,7 @@ const Category = ({ blok }) => {
   return (
     <CategoryItem>
       <CategoryLink to={`/${blok.link.cached_url}`}>
-        <CategoryImage icon={blok.icon}></CategoryImage>
+        <CategoryImage icon={blok.icon} name={blok.name}></CategoryImage>
         <CategoryName>{blok.name}</CategoryName>
       </CategoryLink>
     </CategoryItem>
@@ -59,7 +59,10 @@ const CategoryLink = styled(props => <Link {...props} />)`
   text-decoration: none;
 `
 
-const CategoryImage = styled.img.attrs(props => ({ src: props.icon }))`
+const CategoryImage = styled.img.attrs(props => ({
+  src: props.icon,
+  alt: props.name.toLowerCase(),
+}))`
   height: 128px;
   margin-bottom: 20px;
   z-index: 2;
