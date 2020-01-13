@@ -29,9 +29,14 @@ const Header = props => {
         <DesktopNavList>
           {props.blok[0].nav_item[0].link.map(link => (
             <DesktopNavItem key={link._uid}>
-              <DesktopNavLink to={`/${link.url.cached_url}`}>
-                {link.name}
-              </DesktopNavLink>
+              {link.name === "about" && (
+                <AboutLink link={link.url.cached_url}>{link.name}</AboutLink>
+              )}
+              {link.name !== "about" && (
+                <DesktopNavLink to={`/${link.url.cached_url}`}>
+                  {link.name}
+                </DesktopNavLink>
+              )}
             </DesktopNavItem>
           ))}
           <Humburger onClick={() => openMenu(!isMenuOpen)}>
@@ -104,6 +109,21 @@ const DesktopNavLink = styled(props => <Link {...props} />)`
     color: #06c4d1;
   }
 `
+
+const AboutLink = styled.a.attrs(props => ({
+  href: props.link,
+  target: "_blank",
+  rel: "noreferrer noopenner",
+}))`
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  &:hover,
+  &:active {
+    color: #06c4d1;
+  }
+`
+
 const Humburger = styled.button`
   display: none;
   &:hover {

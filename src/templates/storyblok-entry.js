@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 import TheHeader from "../components/TheHeader"
 import TheFooter from "../components/TheFooter"
+import Seo from "../components/Seo"
 
 class StoryblokEntry extends Component {
   static getDerivedStateFromProps(props, state) {
@@ -36,6 +37,11 @@ class StoryblokEntry extends Component {
 
     return (
       <>
+        <Seo
+          title={content.seo.title}
+          description={content.seo.description}
+          image={content.seo.og_image}
+        />
         <TheHeader blok={globalNavi.header} />
         <Main>
           {React.createElement(Components(content.component), {

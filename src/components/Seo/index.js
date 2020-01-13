@@ -1,16 +1,12 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+import transformImage from "../../utils/imageTransform"
+import favicon from "../../images/favicon.ico"
+
+function SEO({ title, description, lang, meta, image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -27,6 +23,8 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
+  const seoImage = transformImage(image)
+
   return (
     <Helmet
       htmlAttributes={{
@@ -35,6 +33,13 @@ function SEO({ description, lang, meta, title }) {
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
+        {
+          charset: "utf-8",
+        },
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1, shrink-to-fit=no",
+        },
         {
           name: `description`,
           content: metaDescription,
@@ -48,12 +53,20 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          name: `ogg:image`,
+          content: seoImage,
+        },
+        {
+          property: "og:url",
+          content: "https://www.devcodes.co",
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: seoImage,
         },
         {
           name: `twitter:creator`,
@@ -68,6 +81,13 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
+      link={[
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: favicon,
+        },
+      ]}
     />
   )
 }
