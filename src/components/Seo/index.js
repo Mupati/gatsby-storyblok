@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import transformImage from "../../utils/imageTransform"
 import favicon from "../../images/favicon.ico"
-import cardImage from "../../images/kofi-ocran-seo-image.png"
+// import cardImage from "../../images/kofi-ocran-seo-image.png"
 
 function SEO({ title, description, lang, meta, image }) {
   const { site } = useStaticQuery(
@@ -24,7 +24,9 @@ function SEO({ title, description, lang, meta, image }) {
 
   const metaDescription = description || site.siteMetadata.description
 
-  const seoImage = cardImage || transformImage(image)
+  const seoImage =
+    "https://img2.storyblok.com/f/72457/300x200/bc7259be7c/kofi-ocran-seo-image.png" ||
+    transformImage(image, "300x200")
 
   return (
     <Helmet
