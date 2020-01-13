@@ -37,11 +37,13 @@ class StoryblokEntry extends Component {
 
     return (
       <>
-        <Seo
-          title={content.seo.title}
-          description={content.seo.description}
-          image={content.seo.og_image}
-        />
+        {content && content.seo && (
+          <Seo
+            title={content.seo.title}
+            description={content.seo.description}
+            image={content.seo.og_image}
+          />
+        )}
         <TheHeader blok={globalNavi.header} />
         <Main>
           {React.createElement(Components(content.component), {

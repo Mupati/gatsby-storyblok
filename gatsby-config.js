@@ -7,6 +7,7 @@ module.exports = {
     title: `Kofi Mupati Blog - DevCodes`,
     description: `A Blog by Kofi Obrasi Ocran where I share my thoughts on several topics`,
     author: `kofi mupati`,
+    siteUrl: `https://www.devcodes.co`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -28,6 +29,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
