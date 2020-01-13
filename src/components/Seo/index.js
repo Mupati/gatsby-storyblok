@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import transformImage from "../../utils/imageTransform"
 import favicon from "../../images/favicon.ico"
+import cardImage from "../../images/kofi-ocran-seo-image.png"
 
 function SEO({ title, description, lang, meta, image }) {
   const { site } = useStaticQuery(
@@ -23,7 +24,7 @@ function SEO({ title, description, lang, meta, image }) {
 
   const metaDescription = description || site.siteMetadata.description
 
-  const seoImage = transformImage(image)
+  const seoImage = cardImage || transformImage(image)
 
   return (
     <Helmet
