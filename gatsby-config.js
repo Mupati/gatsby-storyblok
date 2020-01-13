@@ -40,8 +40,8 @@ module.exports = {
         name: `KOFI OBRASI OCRAN`,
         short_name: `KOFI MUPATI`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#0e2d30`,
+        theme_color: `#0e2d30`,
         display: `minimal-ui`,
         icon: `src/images/kofi-ocran.jpg`, // This path is relative to the root of the site.
       },
