@@ -30,7 +30,7 @@
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby", "storyblok"
   ],
   "license": "MIT",
   "scripts": {

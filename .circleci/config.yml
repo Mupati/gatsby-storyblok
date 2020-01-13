@@ -1,0 +1,44 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.12.0
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      # let's install dependencies
+      - run: yarn
+
+      # install vue cli latest globally
+      # - run: sudo yarn global add @vue/cli
+
+      # build for production build
+      # - run: npm run build --silent
+
+      # generate static website
+      - run: yarn build
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # copy dist files to digitalocean
+      - run: scp -o StrictHostKeyChecking=no -r ./public/* mupati@devcodes.co://home/mupati/projects/gatsby-storyblok/
+      ################ WARNING WARNING #####################
+      # doing no strict host key check is a security risk to some extent.
+      # But I haven't figured a way to add to ssh for both CI and DO to communicate without that
+      # message popping up
