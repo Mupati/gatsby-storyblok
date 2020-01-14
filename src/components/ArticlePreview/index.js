@@ -15,7 +15,7 @@ const ArticlePreview = props => {
   })
   return (
     <Wrapper>
-      <ArticleLink to={`/${props.blok.link.cached_rl}`}>
+      <ArticleLink to={`/${props.blok.link.cached_url}`}>
         <PreviewContent>
           <Heading>{props.blok.title}</Heading>
           <Excerpt>{props.blok.excerpt}</Excerpt>
