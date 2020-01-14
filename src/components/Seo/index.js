@@ -1,30 +1,25 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
 import transformImage from "../../utils/imageTransform"
 import favicon from "../../images/favicon.ico"
-// import cardImage from "../../images/kofi-ocran-seo-image.png"
+import cardImage from "../../images/kofi-ocran-seo-image.png"
 
 function SEO({ title, description, lang, meta, image }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            author
-          }
-        }
-      }
-    `
-  )
+  // const { site } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       site {
+  //         siteMetadata {
+  //           author
+  //         }
+  //       }
+  //     }
+  //   `
+  // )
 
-  // const metaDescription = description
-
-  const seoImage =
-    "https://img2.storyblok.com/f/72457/300x200/bc7259be7c/kofi-ocran-seo-image.png" ||
-    transformImage(image, "300x200")
+  const seoImage = cardImage || transformImage(image, "300x200")
 
   return (
     <Helmet
@@ -44,6 +39,10 @@ function SEO({ title, description, lang, meta, image }) {
         {
           name: `description`,
           content: description,
+        },
+        {
+          name: `image`,
+          content: seoImage,
         },
         {
           property: `og:title`,
@@ -67,11 +66,15 @@ function SEO({ title, description, lang, meta, image }) {
         },
         {
           name: `twitter:card`,
+          content: `summary_large_image`,
+        },
+        {
+          name: `twitter:image`,
           content: seoImage,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: `kofi_mupati`,
         },
         {
           name: `twitter:title`,
