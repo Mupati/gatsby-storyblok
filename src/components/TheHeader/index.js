@@ -49,9 +49,14 @@ const Header = props => {
           <MobileNavList>
             {props.blok[0].nav_item[0].link.map(link => (
               <MobileNavItem key={link._uid}>
-                <MobileNavLink to={`/${link.url.cached_url}`}>
-                  {link.name}
-                </MobileNavLink>
+                {link.name === "about" && (
+                  <AboutLink link={link.url.cached_url}>{link.name}</AboutLink>
+                )}
+                {link.name !== "about" && (
+                  <MobileNavLink to={`/${link.url.cached_url}`}>
+                    {link.name}
+                  </MobileNavLink>
+                )}
               </MobileNavItem>
             ))}
           </MobileNavList>
@@ -148,6 +153,7 @@ const MobileNavList = styled.ul`
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-left: -3rem;
 `
 const MobileNavItem = styled.li`
   font: 600 20px/24px "Montserrat";

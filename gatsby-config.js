@@ -7,7 +7,7 @@ module.exports = {
     title: `Kofi Mupati Blog - DevCodes`,
     description: `A Blog by Kofi Obrasi Ocran where I share my thoughts on several topics`,
     author: `kofi mupati`,
-    siteUrl: `https://www.devcodes.co`
+    siteUrl: `https://www.devcodes.co`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -44,12 +44,10 @@ module.exports = {
         start_url: `/`,
         background_color: `#0e2d30`,
         theme_color: `#0e2d30`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/kofi-ocran.jpg`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
   ],
 }

@@ -17,4 +17,8 @@ const Wrapper = styled.article`
   display: flex;
   justify-content: center;
   margin: 2em 15% 5em;
+  @media (max-width: 768px) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 `

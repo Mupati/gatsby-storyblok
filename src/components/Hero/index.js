@@ -62,4 +62,7 @@ const Description = styled.p`
   color: #fff;
   z-index: 2;
   font: 400 25px/33px "Montserrat";
+  @media (max-width: 768px) {
+    display: none;
+  }
 `

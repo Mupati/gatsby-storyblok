@@ -13,8 +13,6 @@ function SEO({ title, description, lang, meta, image }) {
       query {
         site {
           siteMetadata {
-            title
-            description
             author
           }
         }
@@ -22,7 +20,7 @@ function SEO({ title, description, lang, meta, image }) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  // const metaDescription = description
 
   const seoImage =
     "https://img2.storyblok.com/f/72457/300x200/bc7259be7c/kofi-ocran-seo-image.png" ||
@@ -34,7 +32,7 @@ function SEO({ title, description, lang, meta, image }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s`}
       meta={[
         {
           charset: "utf-8",
@@ -45,7 +43,7 @@ function SEO({ title, description, lang, meta, image }) {
         },
         {
           name: `description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:title`,
@@ -53,7 +51,7 @@ function SEO({ title, description, lang, meta, image }) {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: description,
         },
         {
           name: `ogg:image`,
@@ -81,7 +79,7 @@ function SEO({ title, description, lang, meta, image }) {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: description,
         },
       ].concat(meta)}
       link={[
