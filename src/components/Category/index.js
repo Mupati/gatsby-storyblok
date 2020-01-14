@@ -1,12 +1,22 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import Img from "gatsby-image"
+
+import { fixedImage } from "../../utils/gatsbyImageTransform"
 
 const Category = ({ blok }) => {
+  let fixedData = fixedImage(blok.icon, {
+    height: 128,
+    width: 128,
+  })
   return (
     <CategoryItem>
       <CategoryLink to={`/${blok.link.cached_url}`}>
-        <CategoryImage icon={blok.icon} name={blok.name}></CategoryImage>
+        <CategoryImage
+          fixed={fixedData}
+          alt={blok.name.toLowerCase()}
+        ></CategoryImage>
         <CategoryName>{blok.name}</CategoryName>
       </CategoryLink>
     </CategoryItem>
@@ -59,11 +69,7 @@ const CategoryLink = styled(props => <Link {...props} />)`
   text-decoration: none;
 `
 
-const CategoryImage = styled.img.attrs(props => ({
-  src: props.icon,
-  alt: props.name.toLowerCase(),
-}))`
-  height: 128px;
+const CategoryImage = styled(props => <Img {...props} />)`
   margin-bottom: 20px;
   z-index: 2;
 `

@@ -1,14 +1,16 @@
 import React from "react"
 import SbEditable from "storyblok-react"
 import styled from "styled-components"
+import BackgroundImage from "gatsby-background-image"
 
-import transformImage from "../../utils/imageTransform"
+import { fluidImage } from "../../utils/gatsbyImageTransform"
 
 const Hero = props => {
-  const bgImage = transformImage(props.blok.banner)
+  let fluidData = fluidImage(props.blok.banner)
   return (
     <SbEditable content={props.blok}>
-      <Wrapper bgImg={bgImage}>
+      <Wrapper fluid={fluidData}>
+        <Overlay />
         <Heading>{props.blok.heading}</Heading>
         {props.blok.description && (
           <Description>{props.blok.description}</Description>
@@ -20,7 +22,7 @@ const Hero = props => {
 
 export default Hero
 
-const Wrapper = styled.div`
+const Wrapper = styled(BackgroundImage)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -29,22 +31,6 @@ const Wrapper = styled.div`
   text-align: center;
   height: 50vh;
   margin-bottom: 2em;
-  background-image: url(${props => props.bgImg});
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #000;
-    opacity: 0.65;
   }
 `
 
@@ -62,7 +48,14 @@ const Description = styled.p`
   color: #fff;
   z-index: 2;
   font: 400 25px/33px "Montserrat";
-  @media (max-width: 768px) {
-    display: none;
-  }
+`
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(19, 17, 16);
+  opacity: 0.7;
 `

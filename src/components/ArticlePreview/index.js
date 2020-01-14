@@ -1,18 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import BackgroundImage from "gatsby-background-image"
 
-import transformImage from "../../utils/imageTransform"
+import { fluidImage } from "../../utils/gatsbyImageTransform"
 import formatName from "../../utils/formatAuthorName"
 import { getDateInEnglish } from "../../utils/formatDate"
 
 const ArticlePreview = props => {
-  const authorName = formatName(props.blok.author.cached_url)
-  const bgImg = transformImage(props.blok.image)
-  const publishedDate = getDateInEnglish(props.blok.date)
+  let authorName = formatName(props.blok.author.cached_url)
+  let publishedDate = getDateInEnglish(props.blok.date)
+  let fluidData = fluidImage(props.blok.image, {
+    maxWidth: 1200,
+  })
   return (
     <Wrapper>
-      <ArticleLink to={`/${props.blok.link.cached_url}`}>
+      <ArticleLink to={`/${props.blok.link.cached_rl}`}>
         <PreviewContent>
           <Heading>{props.blok.title}</Heading>
           <Excerpt>{props.blok.excerpt}</Excerpt>
@@ -21,7 +24,7 @@ const ArticlePreview = props => {
             <PublishedDate>{publishedDate}</PublishedDate>
           </ContentBottom>
         </PreviewContent>
-        <PreviewImage image={bgImg}></PreviewImage>
+        <PreviewImage fluid={fluidData}></PreviewImage>
       </ArticleLink>
     </Wrapper>
   )
@@ -72,8 +75,7 @@ const Author = styled.span`
 `
 const PublishedDate = styled.em``
 
-const PreviewImage = styled.div`
-  background-image: url(${props => props.image});
+const PreviewImage = styled(BackgroundImage)`
   background-color: rgba(6, 196, 209, 0.3);
   background-size: cover;
   background-position: center center;
