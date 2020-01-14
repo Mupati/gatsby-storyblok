@@ -37,6 +37,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.devcodes.co",
+        sitemap: "https://www.devcodes.co/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `KOFI OBRASI OCRAN`,
