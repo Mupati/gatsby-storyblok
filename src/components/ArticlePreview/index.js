@@ -10,6 +10,7 @@ import { getDateInEnglish } from "../../utils/formatDate"
 const ArticlePreview = props => {
   let authorName = formatName(props.blok.author.cached_url)
   let publishedDate = getDateInEnglish(props.blok.date)
+
   let fluidData = fluidImage(props.blok.image, {
     maxWidth: 1200,
   })
@@ -24,7 +25,7 @@ const ArticlePreview = props => {
             <PublishedDate>{publishedDate}</PublishedDate>
           </ContentBottom>
         </PreviewContent>
-        <PreviewImage fluid={fluidData}></PreviewImage>
+        {fluidData && <PreviewImage fluid={fluidData}></PreviewImage>}
       </ArticleLink>
     </Wrapper>
   )

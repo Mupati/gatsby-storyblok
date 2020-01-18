@@ -12,7 +12,7 @@ const Hero = props => {
       <Wrapper fluid={fluidData}>
         <Overlay />
         <Heading>{props.blok.heading}</Heading>
-        {props.blok.description && (
+        {props.path === "index" && props.blok.description && (
           <Description>{props.blok.description}</Description>
         )}
       </Wrapper>

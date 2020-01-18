@@ -1,10 +1,11 @@
 import React from "react"
 import Components from "../utils/components"
 import SbEditable from "storyblok-react"
+import styled from "styled-components"
 import config from "../../gatsby-config"
 
-// import TheHeader from "../components/TheHeader"
-// import TheFooter from "../components/TheFooter"
+import TheHeader from "../components/TheHeader"
+import TheFooter from "../components/TheFooter"
 
 const sbConfigs = config.plugins.filter(item => {
   return item.resolve === "gatsby-source-storyblok"
@@ -91,24 +92,32 @@ class StoryblokEntry extends React.Component {
 
     let content = this.state.story.content
     let globalNavi = this.state.globalNavi.content
-    console.log(globalNavi)
 
     return (
       <SbEditable content={content}>
-        <div>
-          {/* <TheHeader blok={globalNavi.header}></TheHeader> */}
+        {Object.keys(globalNavi).length > 0 && (
+          <TheHeader blok={globalNavi.header}></TheHeader>
+        )}
+        <Main>
           {React.createElement(Components(content.component), {
             key: content._uid,
             blok: content,
           })}
-        </div>
-        {/* <TheFooter blok={globalNavi.footer} /> */}
+        </Main>
+        {Object.keys(globalNavi).length > 0 && (
+          <TheFooter blok={globalNavi.footer} />
+        )}
       </SbEditable>
     )
   }
 }
 
 export default StoryblokEntry
+
+const Main = styled.main`
+  min-height: 100vh;
+  overflow-y: auto;
+`
 
 // import React, { useState, useEffect } from "react"
 // import SbEditable from "storyblok-react"
