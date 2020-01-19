@@ -24,6 +24,12 @@ module.exports = {
         accessToken: process.env.STORYBLOK_PREVIEW_TOKEN,
         homeSlug: "home",
         version: process.env.NODE_ENV === "production" ? "published" : "draft",
+        resolveRelations: [
+          "article.author",
+          "page.author",
+          "article.category",
+          "page.category",
+        ],
       },
     },
     `gatsby-plugin-styled-components`,

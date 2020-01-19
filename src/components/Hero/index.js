@@ -38,9 +38,8 @@ const Heading = styled.h2`
   z-index: 2;
   color: #06c4d1;
   font-size: 5em;
-  text-transform: uppercase;
   @media (max-width: 768px) {
-    font-size: 2.5em;
+    font-size: 2.3em;
   }
 `
 
@@ -48,6 +47,9 @@ const Description = styled.p`
   color: #fff;
   z-index: 2;
   font: 400 25px/33px "Montserrat";
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `
 
 const Overlay = styled.div`

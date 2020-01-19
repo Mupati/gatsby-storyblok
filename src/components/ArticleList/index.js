@@ -21,7 +21,7 @@ const ArticleList = props => {
     {
       allStoryblokEntry(
         filter: {
-          full_slug: { regex: "/crosslines|wordsmith|technology/" }
+          full_slug: { regex: "/crosslines|wordsmith|software/" }
           is_startpage: { eq: false }
         }
       ) {
@@ -42,7 +42,6 @@ const ArticleList = props => {
 
   edges.forEach(entry => {
     let expression = new RegExp(props.path, "i")
-
     if (expression.test(entry.node.full_slug)) {
       meta.push(JSON.parse(entry.node.content).body[1].meta)
     }
@@ -50,12 +49,13 @@ const ArticleList = props => {
 
   let categoryArticles = (
     <Wrapper>
-      {meta.map(blok =>
-        React.createElement(Components(blok[0].component), {
-          key: blok[0]._uid,
-          blok: { ...blok[0], date: props.dateCreated },
-        })
-      )}
+      {meta.length > 0 &&
+        meta.map(blok =>
+          React.createElement(Components(blok[0].component), {
+            key: blok[0]._uid,
+            blok: { ...blok[0], date: props.dateCreated },
+          })
+        )}
     </Wrapper>
   )
 
