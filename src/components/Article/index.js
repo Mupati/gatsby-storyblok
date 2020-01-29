@@ -21,4 +21,13 @@ const Wrapper = styled.article`
     margin-left: 5%;
     margin-right: 5%;
   }
+  @media (max-width: 768px) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  @media (max-width: 480px) {
+    font-size: 16px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
 `
