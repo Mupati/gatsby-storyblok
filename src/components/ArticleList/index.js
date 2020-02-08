@@ -29,6 +29,7 @@ const ArticleList = props => {
           node {
             uuid
             full_slug
+            first_published_at
             content
           }
         }
@@ -38,22 +39,26 @@ const ArticleList = props => {
 
   let { edges } = data.allStoryblokEntry
 
+  // information used to render the article previews
   let meta = []
+  // dates the articles were created
+  let dates = []
 
   edges.forEach(entry => {
     let expression = new RegExp(props.path, "i")
     if (expression.test(entry.node.full_slug)) {
       meta.push(JSON.parse(entry.node.content).body[1].meta)
+      dates.push(entry.node.first_published_at)
     }
   })
 
   let categoryArticles = (
     <Wrapper>
       {meta.length > 0 &&
-        meta.map(blok =>
+        meta.map((blok, index) =>
           React.createElement(Components(blok[0].component), {
             key: blok[0]._uid,
-            blok: { ...blok[0], date: props.dateCreated },
+            blok: { ...blok[0], date: dates[index] },
           })
         )}
     </Wrapper>

@@ -60,7 +60,6 @@ exports.createPages = ({ graphql, actions }) => {
               "The global navigation item has not been found. Please create a content item with the content type global in Storyblok."
             )
           }
-
           createPage({
             path: `/${pagePath}`,
             component: storyblokEntry,

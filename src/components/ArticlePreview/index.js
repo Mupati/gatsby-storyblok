@@ -76,7 +76,7 @@ const Author = styled.span`
 `
 const PublishedDate = styled.em``
 
-const PreviewImage = styled(BackgroundImage)`
+const PreviewImage = styled(props => <BackgroundImage {...props} />)`
   background-color: rgba(6, 196, 209, 0.3);
   background-size: cover;
   background-position: center center;
