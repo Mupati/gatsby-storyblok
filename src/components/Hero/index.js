@@ -22,7 +22,7 @@ const Hero = props => {
 
 export default Hero
 
-const Wrapper = styled(props => <BackgroundImage {...props} />)`
+const Wrapper = styled(BackgroundImage)`
   position: relative;
   display: flex;
   flex-direction: column;
