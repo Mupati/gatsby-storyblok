@@ -7,6 +7,6 @@ export default Paragraph
 
 const Wrapper = styled.p`
   text-align: justify;
-  padding: 1em 0;
+  padding: 0.5em 0;
   margin: 1em 0;
 `
