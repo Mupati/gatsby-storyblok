@@ -51,18 +51,18 @@ module.exports = {
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `KOFI OBRASI OCRAN`,
-        short_name: `KOFI MUPATI`,
-        start_url: `/`,
-        background_color: `#0e2d30`,
-        theme_color: `#0e2d30`,
-        display: `standalone`,
-        icon: `src/images/kofi-ocran.jpg`, // This path is relative to the root of the site.
-      },
-    },
-    `gatsby-plugin-offline`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `KOFI OBRASI OCRAN`,
+    //     short_name: `KOFI MUPATI`,
+    //     start_url: `/`,
+    //     background_color: `#0e2d30`,
+    //     theme_color: `#0e2d30`,
+    //     display: `standalone`,
+    //     icon: `src/images/kofi-ocran.jpg`,  This path is relative to the root of the site.
+    //   },
+    // },
+    // `gatsby-plugin-offline`,
   ],
 }
