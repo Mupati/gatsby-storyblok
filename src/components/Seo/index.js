@@ -7,18 +7,6 @@ import favicon from "../../images/favicon.ico"
 import cardImage from "../../images/kofi-ocran-seo-image.png"
 
 function SEO({ title, description, lang, meta, image }) {
-  // const { site } = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       site {
-  //         siteMetadata {
-  //           author
-  //         }
-  //       }
-  //     }
-  //   `
-  // )
-
   const seoImage = cardImage || transformImage(image, "300x200")
 
   return (
