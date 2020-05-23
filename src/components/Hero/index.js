@@ -12,7 +12,7 @@ const Hero = props => {
       <Wrapper fluid={fluidData}>
         <Overlay />
         <Heading>{props.blok.heading}</Heading>
-        {props.path === "index" && props.blok.description && (
+        {props.blok.description && (
           <Description>{props.blok.description}</Description>
         )}
       </Wrapper>
@@ -43,8 +43,8 @@ const Heading = styled.h2`
   }
 `
 
-const Description = styled.p`
-  color: #fff;
+const Description = styled.h4`
+  color: #06c4d1;
   z-index: 2;
   font: 400 25px/33px "Montserrat";
   @media (max-width: 768px) {
